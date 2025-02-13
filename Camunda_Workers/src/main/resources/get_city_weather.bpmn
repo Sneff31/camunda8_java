@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0ius1a2" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.30.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.6.0">
+  <bpmn:process id="get-weather-data" name="Get Weather Data" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0c9b67b</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0c9b67b" sourceRef="StartEvent_1" targetRef="get-weather" />
+    <bpmn:endEvent id="Event_0mrim8o">
+      <bpmn:incoming>Flow_0jf4hq3</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0nay1ki" sourceRef="get-weather" targetRef="Activity_1ypdiur" />
+    <bpmn:serviceTask id="get-weather" name="Get Weather">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="weatherTyp" />
+        <zeebe:ioMapping>
+          <zeebe:input source="=100" target="totalWithTax" />
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0c9b67b</bpmn:incoming>
+      <bpmn:outgoing>Flow_0nay1ki</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0jf4hq3" sourceRef="Activity_1ypdiur" targetRef="Event_0mrim8o" />
+    <bpmn:userTask id="Activity_1ypdiur">
+      <bpmn:incoming>Flow_0nay1ki</bpmn:incoming>
+      <bpmn:outgoing>Flow_0jf4hq3</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1xh0r9d" sourceRef="Event_022a2o6" targetRef="Activity_154klqk" />
+    <bpmn:endEvent id="Event_0ykc6ol">
+      <bpmn:incoming>Flow_0bqeeqr</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0bqeeqr" sourceRef="Activity_154klqk" targetRef="Event_0ykc6ol" />
+    <bpmn:boundaryEvent id="Event_022a2o6" attachedToRef="get-weather">
+      <bpmn:outgoing>Flow_1xh0r9d</bpmn:outgoing>
+      <bpmn:errorEventDefinition id="ErrorEventDefinition_0ro7udk" errorRef="Error_1ww5sco" />
+    </bpmn:boundaryEvent>
+    <bpmn:userTask id="Activity_154klqk">
+      <bpmn:incoming>Flow_1xh0r9d</bpmn:incoming>
+      <bpmn:outgoing>Flow_0bqeeqr</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmn:error id="Error_1ww5sco" name="erroristgeworfen" errorCode="erroristgeworfen" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="get-weather-data">
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="162" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1568dg4_di" bpmnElement="get-weather">
+        <dc:Bounds x="260" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0mrim8o_di" bpmnElement="Event_0mrim8o">
+        <dc:Bounds x="522" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0c7ufw6_di" bpmnElement="Activity_1ypdiur">
+        <dc:Bounds x="390" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0ykc6ol_di" bpmnElement="Event_0ykc6ol">
+        <dc:Bounds x="532" y="252" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_13dl07h_di" bpmnElement="Activity_154klqk">
+        <dc:Bounds x="380" y="230" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_10f3bz4_di" bpmnElement="Event_022a2o6">
+        <dc:Bounds x="292" y="142" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0c9b67b_di" bpmnElement="Flow_0c9b67b">
+        <di:waypoint x="198" y="120" />
+        <di:waypoint x="260" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0nay1ki_di" bpmnElement="Flow_0nay1ki">
+        <di:waypoint x="360" y="120" />
+        <di:waypoint x="390" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0jf4hq3_di" bpmnElement="Flow_0jf4hq3">
+        <di:waypoint x="490" y="120" />
+        <di:waypoint x="522" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1xh0r9d_di" bpmnElement="Flow_1xh0r9d">
+        <di:waypoint x="310" y="178" />
+        <di:waypoint x="310" y="270" />
+        <di:waypoint x="380" y="270" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0bqeeqr_di" bpmnElement="Flow_0bqeeqr">
+        <di:waypoint x="480" y="270" />
+        <di:waypoint x="532" y="270" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

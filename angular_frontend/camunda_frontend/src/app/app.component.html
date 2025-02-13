@@ -1,0 +1,5 @@
+<h1>Deploy your Camunda Process!</h1>
+<p>Here you can trigger your process deployment.</p>
+<input name="process_name" placeholder="Camunda Process Name" #processName>
+<button (click)="deployCamundaProcess(processName.value)">Deploy!</button>
+<p>{{ message }}</p>
