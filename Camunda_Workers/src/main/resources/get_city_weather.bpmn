@@ -39,17 +39,18 @@
     </bpmn:userTask>
   </bpmn:process>
   <bpmn:error id="Error_1ww5sco" name="erroristgeworfen" errorCode="erroristgeworfen" />
+  <bpmn:message id="Message_3s58jq2" name="Message_3s58jq2" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="get-weather-data">
       <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
         <dc:Bounds x="162" y="102" width="36" height="36" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0mrim8o_di" bpmnElement="Event_0mrim8o">
+        <dc:Bounds x="522" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1568dg4_di" bpmnElement="get-weather">
         <dc:Bounds x="260" y="80" width="100" height="80" />
         <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0mrim8o_di" bpmnElement="Event_0mrim8o">
-        <dc:Bounds x="522" y="102" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0c7ufw6_di" bpmnElement="Activity_1ypdiur">
         <dc:Bounds x="390" y="80" width="100" height="80" />
