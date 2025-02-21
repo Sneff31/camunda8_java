@@ -1,5 +1,37 @@
-<h1>Deploy your Camunda Process!</h1>
-<p>Here you can trigger your process deployment.</p>
-<input name="process_name" placeholder="Camunda Process Name" #processName>
-<button (click)="deployCamundaProcess(processName.value)">Deploy!</button>
-<p>{{ message }}</p>
+<section class="section">
+    <div class="container has-text-centered">
+      <h1 class="title">
+        Deploy your Camunda Process!
+      </h1>
+      <p class="subtitle">
+        <strong class="has-text-primary">Here you can trigger your process deployment.</strong>
+      </p>
+    </div>
+  </section>
+<div class="fixed-grid has-5-cols">
+    <div class="grid">
+        <div class="cell"></div>
+        <div class="cell is-col-span-2"><input class="input" name="process_name" placeholder="Camunda Process Name" #processName></div>
+        <div class="cell"><button class="button is-primary" (click)="deployCamundaProcess(processName.value)">Deploy!</button></div>
+        <div class="cell"><p>{{ message }}</p></div>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container has-text-centered">
+      <h1 class="title">
+        Start your Camunda Process!
+      </h1>
+      <p class="subtitle">
+        <strong class="has-text-primary">Here you can start your camunda process.</strong>
+      </p>
+    </div>
+</section>
+<div class="fixed-grid has-5-cols">
+    <div class="grid">
+        <div class="cell"></div>
+        <div class="cell is-col-span-2"><input class="input" name="process_name" placeholder="Camunda Process Name" #processName></div>
+        <div class="cell"><button class="button is-primary" (click)="deployCamundaProcess(processName.value)">Start!</button></div>
+        <div class="cell"><p>{{ message }}</p></div>
+    </div>
+</div>
